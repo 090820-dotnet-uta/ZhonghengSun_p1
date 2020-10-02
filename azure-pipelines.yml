@@ -29,6 +29,9 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'szh953_storeappp1'
     projectName: 'storeappp1'
+    extraProperties: 
+      sonar.exclusions=**/obj/**,**/*.dll
+
 
 - task: DotNetCoreCLI@2
   inputs:
