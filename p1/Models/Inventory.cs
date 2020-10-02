@@ -10,7 +10,7 @@ namespace p1.Models
     {
 
         [Key]
-        public int Id
+        public int InventoryId
         {
             get; set;
         }

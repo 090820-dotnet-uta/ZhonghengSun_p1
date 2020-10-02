@@ -9,7 +9,7 @@ namespace p1.Models
     public class Product
     {
         [Key]
-        public int Id
+        public int ProductId
         {
             get; set;
         }

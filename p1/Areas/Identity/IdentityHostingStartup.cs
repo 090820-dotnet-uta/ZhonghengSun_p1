@@ -20,7 +20,7 @@ namespace p1.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("AuthContextConnection")));
 
-                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                     .AddEntityFrameworkStores<AuthContext>();
             });
         }
