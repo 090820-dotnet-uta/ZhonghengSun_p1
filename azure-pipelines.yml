@@ -34,6 +34,8 @@ steps:
   inputs:
     command: 'build'
     projects: './p1/p1.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
 
 
 # - task: VSBuild@1
