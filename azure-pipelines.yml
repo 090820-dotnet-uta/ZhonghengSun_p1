@@ -36,7 +36,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: './p1/p1.sln'
+    projects: './p1/p1.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 
