@@ -1,0 +1,22 @@
+﻿@model List<p1.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "SearchPage";
+    var user = Model.Last();
+}
+
+
+<div class="parentGrid">
+
+    @Html.DisplayFor(modeUser => user.FirstName)
+
+    @Html.DisplayFor(modeUser => user.FirstName)
+
+</div>
+
+
+    <button type="submit">
+        <a asp-controller="home" asp-action="Index" >Go back</a>
+    </button>
+
+

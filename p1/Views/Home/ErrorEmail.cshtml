@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+
+<h1 class="head">Please enter the email of the user you want to search for</h1>
+
+<p1>Error: Email invalid or user not found</p1>
+
+<div class="parentGrid">
+
+    <form asp-controller="Home" asp-action="SearchPage" method="post">
+        Email: @Html.TextBox("test")
+
+        <button type="submit">Search</button>
+    </form>
+
+</div>
+

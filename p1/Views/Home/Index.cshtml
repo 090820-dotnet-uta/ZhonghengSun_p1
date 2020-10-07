@@ -1,8 +1,51 @@
-﻿@{
+﻿
+@model IEnumerable<p1.Models.Store>
+
+
+
+
+@{
     ViewData["Title"] = "Home Page";
+    Layout = "/Views/Shared/_Layout.cshtml";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to Stores</h1>
-    <p>Select the Store closest to you :)</p>
+   
+    <p>Select the Store closest to you</p>
+
+
+
+
+
+    <h1 class="head">Store List</h1>
+
+    <div class="grid">
+        @foreach (var item in Model)
+        {
+            <div class="name">
+                <h2>@Html.DisplayFor(modelItem => item.StoreName)</h2>
+            </div>
+            <div class="street">
+                @Html.DisplayFor(modelItem => item.Street)
+            </div>
+            <div class="city">
+                @Html.DisplayFor(modelItem => item.City)
+            </div>
+            <div class="State">
+                @Html.DisplayFor(modelItem => item.State)
+            </div>
+            <div>
+                <button type="submit">
+                    @Html.ActionLink("Select", "Store", new { id = item.StoreId })
+                </button>
+                <button type="submit">
+                    @Html.ActionLink("Orders", "StoreOrders", new { id = item.StoreId })
+                </button>
+
+            </div>
+        }
+
+    </div>
+
 </div>

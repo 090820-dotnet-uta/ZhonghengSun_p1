@@ -1,0 +1,73 @@
+﻿@model List<List<p1.Models.OrderDetails>>
+
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h1 class="head">Your Past Orders</h1>
+
+<div class="parentGrid">
+    @foreach (var item in Model)
+    {
+        @foreach (var stuff in item)
+        {
+
+
+            @Html.DisplayFor(modelItem => stuff.Product.Name)
+            <br />
+            <p1>Quantity</p1> @Html.DisplayFor(modelItem => stuff.Quantity)
+
+            double total = stuff.Quantity * stuff.Product.Price;
+            <br />
+            <p1>Subtotal: $</p1>@total
+            <br />
+        }
+        double grand = item.Last().Order.totalamount;
+        <p1>Total: $</p1>@grand
+        <br/>
+        <p1>--------------------------------------------------- </p1>
+        <br />
+
+        @*  Subtotal:$@Html.DisplayFor(modelItem => Model.Last().Last()) *@
+    }
+
+
+</div>
+    
+
+<div class="btn">
+    <button type="submit">
+        <a asp-controller="Home" asp-action="Index">Go back</a>
+    </button>
+
+
+</div>
+       @*
+<table cellpadding="2" cellspacing="2" border="1">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    @foreach (var stuff in item.Details)
+    {
+        
+
+    <td>@Html.DisplayFor(modelItem => stuff.Product.Name) </td>
+    <td>@Html.DisplayFor(modelItem => stuff.Product.Name)</td>
+    <td>@Html.DisplayFor(modelItem => stuff.Quantity)</td>
+    <td>@Html.DisplayFor(modelItem => item.totalamount)</td>
+    }
+</tr>
+    }
+    <tr>
+        <td align="right" colspan="6">Sum</td>
+        <td>
+            
+        </td>
+    </tr>
+</table>*@

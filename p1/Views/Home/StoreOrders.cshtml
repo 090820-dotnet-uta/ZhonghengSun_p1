@@ -1,0 +1,38 @@
+﻿@model List<p1.Models.Order>
+
+@{
+    ViewData["Title"] = "StoreOrder";
+}
+
+<h1 class="head">Orders</h1>
+
+<div class="parentGrid">
+    @foreach (var item in Model)
+    {
+    <div class="grid">
+        @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+        @foreach (var crap in item.Details)
+        {
+            @Html.DisplayFor(modelItem => crap.Product.Name)
+        }
+        @Html.DisplayFor(modelItem => item.OrderTime)
+
+
+
+        <br />
+
+        <br />
+
+
+    </div>
+    }
+</div>
+<div class="btn">
+    <button type="submit">
+        <a asp-controller="Home" asp-action="Index">Go back</a>
+    </button>
+
+
+
+
+</div>

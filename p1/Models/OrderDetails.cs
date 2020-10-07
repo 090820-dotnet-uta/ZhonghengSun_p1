@@ -10,10 +10,17 @@ namespace p1.Models
         public int OrderDetailsId { get; set; }
 
 
-        public List<Product> Product { get; set; }
+        public Product Product { get; set; }
+
+
+        public int OrderId { get; set; }
+
+        public Order Order { get; set; }
 
         public string[] productNames { get; set; }
 
         public int Quantity { get; set; }
+
+       
     }
 }

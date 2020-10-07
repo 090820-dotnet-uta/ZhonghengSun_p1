@@ -1,0 +1,71 @@
+﻿
+
+@model List<p1.Models.Inventory>
+
+@{
+    ViewData["Title"] = "Store";
+}
+
+<h1 class="head">Please choose the items that you want</h1>
+
+<div class="parentGrid">
+    @foreach (var item in Model)
+    {
+        var a = item.Quantity;
+    <div class="grid">
+        <h4> @Html.DisplayFor(modelItem => item.Product.Name) </h4>
+        Quantity: @Html.DisplayFor(modelItem => item.Quantity)
+        <br />
+        $@Html.DisplayFor(modelItem => item.Product.Price)
+        <br />
+
+        <form asp-controller="cart" asp-action="buy" asp- asp-route-id="@item.Product.ProductId" method="post">
+
+
+            Quantity: @Html.TextBox("test", null, new { id = "numb" })
+
+            <button type="submit" onclick="myFunction()">Buy Now</button>
+            <br /><br />
+            
+        </form>
+
+        @*<a asp-controller="cart" asp-action="buy" asp-route-id="@item.Product.ProductId">Buy Now</a> *@
+        <p id="demo"></p>
+    </div>
+    }
+</div>
+<div class="btn">
+    <button type="submit">
+        <a asp-controller="cart" asp-action="Index">go to cart</a>
+    </button>
+
+    <button type="submit">
+        <a asp-controller="home" asp-action="checkout" as>Checkout</a>
+    </button>
+
+
+</div>
+
+<script>
+    function setInputFilter(textbox, inputFilter) {
+        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function (event) {
+            textbox.addEventListener(event, function () {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                } else {
+                    this.value = "";
+                }
+            });
+        });
+    }
+    setInputFilter(document.getElementById("numb"), function (value) {
+        return /^\d*$/.test(value);
+    });
+    
+    
+</script>

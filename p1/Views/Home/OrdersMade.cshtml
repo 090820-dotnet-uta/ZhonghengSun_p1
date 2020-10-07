@@ -1,0 +1,51 @@
+﻿@model List<p1.Models.OrderDetails>
+
+@{
+
+   var order = Model.Last();
+}
+
+
+
+<h1 class="head">You are checked out!</h1>
+
+<div class="parentGrid">
+
+    <div class="grid">
+
+        @foreach (var item in Model)
+        {
+
+            @Html.DisplayFor(modeItem => item.Product.Name)
+            <br />
+            <p1>$</p1>@Html.DisplayFor(modeItem => item.Product.Price)
+            <br />
+            <p1>Quantity:</p1> @Html.DisplayFor(modeItem => item.Quantity)
+            <br />
+
+
+
+        }
+        Subtotal:$@Html.DisplayFor(modelItem => order.Order.totalamount)
+        <br />
+
+
+
+
+
+        @*<a asp-controller="cart" asp-action="buy" asp-route-id="@item.Product.ProductId">Buy Now</a> *@
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
+<div class="btn">
+    <a asp-controller="Home" asp-action="Clear">Return to homepage</a>
+
+</div>
